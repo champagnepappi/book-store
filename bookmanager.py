@@ -23,7 +23,7 @@ class Book(db.model):
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.form:
-        print(request.form)
+        book = Book(title=request.form.get("title"))
     return render_template("home.html")
 
 if __name__== "__main__":

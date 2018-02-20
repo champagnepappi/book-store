@@ -24,6 +24,8 @@ class Book(db.model):
 def home():
     if request.form:
         book = Book(title=request.form.get("title"))
+        db.session.add(book)
+        db.session.commit()
     return render_template("home.html")
 
 if __name__== "__main__":
